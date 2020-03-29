@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Libro {
 
     private String titulo;
@@ -57,7 +59,7 @@ public class Libro {
     {
         System.out.println("---------------------------------");
         System.out.println("Titulo: " + this.titulo);
-        unAutor.mostrarAutor(unAutor);
+        unAutor.mostrarAutor();
         System.out.println("Stock: " + this.stock);
         System.out.println("Precio: $" + this.precio);
         System.out.println("---------------------------------");
@@ -76,5 +78,19 @@ public class Libro {
       if (this.autor2 != null)
           System.out.print(" Y " + this.autor2);
       System.out.print (". Se vende a: " + this.precio + "\n");
+    }
+
+    public void mostrarLibroConADA (Libro unLibro, Autor ADA[], int posAutor)
+    {
+        int  i = 0;
+        System.out.println("---------------------------------");
+        System.out.println("Titulo: " + this.titulo);
+        while (i < posAutor) {
+            ADA[i].mostrarAutor();
+            i++;
+        }
+        System.out.println("Stock: " + this.stock);
+        System.out.println("Precio: $" + this.precio);
+        System.out.println("---------------------------------");
     }
 }

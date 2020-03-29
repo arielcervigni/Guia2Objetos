@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class Main {
 
     static public void ejercicio1()
     {
+        /*
         /// Ejercicio A
         Autor unAutor = new Autor("Joshua", "Bloch", "joshua@email.com", 'M');
         /// Ejercicio B
@@ -34,5 +37,14 @@ public class Main {
 
         libroConDosAutores.mostrarLibroAutoresYPrecio2();
 
+         */
+        Libro unLibro = new Libro("Prueba", "Ariel", 500, 400);
+        char control = 's';
+        Autor unAutor = new Autor(null, null, null, '\n');
+        Autor ADA [] = new Autor[5];
+        System.out.println("Aca");
+        int posAutor = unAutor.ADA(ADA);
+
+        unLibro.mostrarLibroConADA(unLibro, ADA, posAutor);
     }
 }
