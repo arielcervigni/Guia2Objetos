@@ -1,6 +1,4 @@
-package com.company;
-
-import java.util.Scanner;
+package com.company.Ejercicio1;
 
 public class Libro {
 

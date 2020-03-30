@@ -1,21 +1,24 @@
 package com.company;
 
-import java.util.Scanner;
+import com.company.Ejercicio1.Autor;
+import com.company.Ejercicio1.Libro;
+import com.company.Ejercicio2.Cliente;
+import com.company.Ejercicio2.Factura;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        ejercicio1();
+        ejercicio2();
     }
 
     static public void ejercicio1()
     {
-        /*
+
         /// Ejercicio A
         Autor unAutor = new Autor("Joshua", "Bloch", "joshua@email.com", 'M');
         /// Ejercicio B
-        unAutor.mostrarAutor(unAutor);
+        unAutor.mostrarAutor();
         /// Ejercicio C
         Libro unLibro = new Libro("Effective Java", "Joshua Bloch", 450, 150);
         /// Ejercicio D
@@ -37,14 +40,19 @@ public class Main {
 
         libroConDosAutores.mostrarLibroAutoresYPrecio2();
 
-         */
-        Libro unLibro = new Libro("Prueba", "Ariel", 500, 400);
-        char control = 's';
-        Autor unAutor = new Autor(null, null, null, '\n');
+        Libro unLibro2 = new Libro("Prueba", "Ariel", 500, 400);
+        Autor unAutor2 = new Autor(null, null, null, '\n');
         Autor ADA [] = new Autor[5];
-        System.out.println("Aca");
-        int posAutor = unAutor.ADA(ADA);
+        int posAutor = unAutor2.ADA(ADA);
+        unLibro2.mostrarLibroConADA(unLibro, ADA, posAutor);
 
-        unLibro.mostrarLibroConADA(unLibro, ADA, posAutor);
+
+    }
+    static public void ejercicio2()
+    {
+        Cliente unCliente = new Cliente();
+        unCliente.mostrarCliente();
+        Factura unaFactura = new Factura(unCliente);
+        unaFactura.mostrarFactura();
     }
 }
