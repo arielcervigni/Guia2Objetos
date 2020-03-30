@@ -51,8 +51,9 @@ public class Main {
     static public void ejercicio2()
     {
         Cliente unCliente = new Cliente();
-        unCliente.mostrarCliente();
-        Factura unaFactura = new Factura(unCliente);
-        unaFactura.mostrarFactura();
+        //unCliente.mostrarCliente();
+        Factura unaFactura = new Factura(unCliente, 1000);
+        unaFactura.mostrarTodo(unCliente);
+
     }
 }
