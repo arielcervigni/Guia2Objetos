@@ -62,9 +62,11 @@ public class Cliente {
 
     public void mostrarCliente ()
     {
+        System.out.println("//////////////////////////////////////////");
         System.out.println("ID Cliente: " + this.ID);
         System.out.println("Nombre y Apellido: " + this.nombre);
         System.out.println("Email: " + this.email);
         System.out.println("Descuento: % " + this.descuento);
+        System.out.println("//////////////////////////////////////////");
     }
 }

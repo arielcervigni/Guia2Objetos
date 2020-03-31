@@ -52,8 +52,9 @@ public class Main {
     {
         Cliente unCliente = new Cliente();
         //unCliente.mostrarCliente();
-        Factura unaFactura = new Factura(unCliente, 1000);
+        Factura unaFactura = new Factura(unCliente, 10,0);
         unaFactura.mostrarTodo(unCliente);
 
     }
+
 }
