@@ -4,8 +4,9 @@ import java.time.*;
 import java.util.Formatter;
 import java.util.Scanner;
 import java.util.UUID;
+import java.text.SimpleDateFormat;
 
-public class Factura<total, descuento> {
+public class Factura {
 
     UUID ID;
     double total;
@@ -15,17 +16,18 @@ public class Factura<total, descuento> {
     int dimension;
     int cantidad;
 
-    public Factura (Cliente unCliente, int dim, int cant)
+   /// Constructor
+    public Factura (Cliente unCliente)
     {
         setID();
         setFyh();
         this.unCliente = unCliente;
-        this.dimension = dim;
+        this.dimension = 3;
         this.cantidad = cargarItems();
-        ItemVenta ADIV[] = null;
+        ItemVenta ADIV[];
         this.total = sumarItems();
     }
-
+    /// GETTERS
     public UUID getID()
     {
         return ID;
@@ -46,13 +48,19 @@ public class Factura<total, descuento> {
     public int getCantidad () { return cantidad; }
     public ItemVenta[] getADIV () { return ADIV; }
 
+    /// SETTERS
+    public void setCliente ()
+    {
+        this.unCliente = unCliente;
+    }
+    public void setDimension ()  {this.dimension = dimension; }
+    public void setCantidad ()  {this.cantidad = cantidad; }
     public void setTotal ()
     {
         this.total = sumarItems();
     }
-    public void setCliente (Cliente unCliente)
-    {
-        this.unCliente = unCliente;
+    public void setADIV(ItemVenta[] ADIV) {
+        this.ADIV = ADIV;
     }
     public void setID ()
     {
@@ -64,43 +72,27 @@ public class Factura<total, descuento> {
         LocalDateTime fyh = LocalDateTime.now();
         this.fyh = fyh;
     }
-    public void setADIV(ItemVenta[] ADIV) {
-        this.ADIV = ADIV;
-    }
-    public void setDimension ()  {this.dimension = dimension; }
-    public void setCantidad ()  {this.cantidad = cantidad; }
 
-    public void mostrarFactura ()
-    {
-        System.out.println("ID Factura: " + ID);
-        unCliente.mostrarCliente();
-        System.out.println("Fecha y hora: " + fyh);
-        System.out.println("Total: " + total);
-    }
-    public double calcularTotal (Cliente unCliente)
+    /// METODOS
+    public double calcularTotal ()
     {
        double totalConDescuento = 0;
        double descuento = 0;
-       double porcentaje = unCliente.getDescuento();
-
-       descuento = (porcentaje*this.total)/100;
+       //double porcentaje = unCliente.getDescuento();
+       descuento = (unCliente.getDescuento()*this.total)/100;
        totalConDescuento = this.total - descuento;
-
         return totalConDescuento;
     }
-    public void mostrarTodo (Cliente unCliente)
+    public void mostrarTodo ()
     {
-        unCliente.mostrarCliente();
-        System.out.println("Factura:");
-        System.out.println("ID Factura: " + this.ID);
-        System.out.println("Fecha: y hora " + this.fyh);
-        mostrarItems();
-        System.out.println("Monto de factura: " + this.total);
-        double porcentaje = unCliente.getDescuento();
-        System.out.println("Porcentaje de descuento: %" + porcentaje);
-        System.out.println("Monto de descuento: " + (porcentaje*this.total)/100);
-        double totalFinal = this.calcularTotal(unCliente);
-        System.out.print("Total con descuento: " + totalFinal);
+        mostrarFactura();
+        //double porcentaje = unCliente.getDescuento();
+        System.out.println("Total de Factura: " + this.total);
+        System.out.println("Porcentaje de descuento: %" + unCliente.getDescuento());
+        System.out.println("Monto de descuento: " + (unCliente.getDescuento()*this.total)/100);
+        //double totalFinal = this.calcularTotal();
+        System.out.println("Total con descuento: " + this.calcularTotal());
+        System.out.println("++++++++++ Gracias por usar el Programa de Ariel Cervigni ++++++++++++");
     }
     public int cargarItems ()
     {
@@ -109,13 +101,17 @@ public class Factura<total, descuento> {
         char control = 's';
         Scanner bf = new Scanner(System.in);
 
+
         while (i < this.dimension && control == 's')
         {
             ADIV[i] = new ItemVenta();
-            System.out.print("Desea agregar otro item? s/n");
+            System.out.print("Desea agregar otro item? s/n\t");
             control = bf.next().charAt(0);
             i++;
+            if (i==3)
+                System.out.println("No se puede agregar más items");
         }
+
         return i;
     }
     public void mostrarItems ()
@@ -138,5 +134,13 @@ public class Factura<total, descuento> {
             //suma+= ADIV[i].getPrecioUnitario();
         }
         return suma;
+    }
+    public void mostrarFactura ()
+    {
+        unCliente.mostrarCliente();
+        System.out.println("ID Factura: " + ID);
+        System.out.println("Fecha y hora: " + fyh);
+        System.out.println("Total: " + total);
+        mostrarItems();
     }
 }

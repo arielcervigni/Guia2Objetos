@@ -8,10 +8,11 @@ public class ItemVenta {
     private UUID ID;
     private String nombre;
     private String descripcion;
-    private double precioUnitario = 0;
-    private int cantidadItem = 0;
-    private  double precioTotal = 0;
+    private double precioUnitario;
+    private int cantidadItem;
+    private double precioTotal;
 
+    /// Constructor
     public ItemVenta ()
     {
         Scanner bf = new Scanner(System.in);
@@ -27,7 +28,7 @@ public class ItemVenta {
         this.precioTotal = totalItem();
     }
 
-
+    /// GETTERS
     public UUID getID() {
         return ID;
     }
@@ -41,6 +42,7 @@ public class ItemVenta {
     public String getDescripcion() { return descripcion; }
     public double getPrecioTotal() { return precioTotal; }
 
+    /// SETTERS
     public void setID ()
     {
         ID = UUID.randomUUID();
@@ -75,6 +77,7 @@ public class ItemVenta {
         rta = this.precioUnitario*this.cantidadItem;
         return rta;
     }
+
 
 }
 

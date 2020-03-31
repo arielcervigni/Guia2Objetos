@@ -10,6 +10,7 @@ public class Cliente {
     private String email;
     private double descuento;
 
+    /// Constructor
     public Cliente () {
         Scanner bf = new Scanner(System.in);
         String teclado;
@@ -26,7 +27,7 @@ public class Cliente {
         desc = bf.nextDouble();
         setDescuento(desc);
     }
-
+    /// GETTERS
     public UUID getID() {
         return ID;
     }
@@ -42,7 +43,7 @@ public class Cliente {
     {
         return descuento;
     }
-
+    /// SETTERS
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
