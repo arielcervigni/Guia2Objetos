@@ -4,6 +4,8 @@ import com.company.Ejercicio1.Autor;
 import com.company.Ejercicio1.Libro;
 import com.company.Ejercicio2.Cliente;
 import com.company.Ejercicio2.Factura;
+import com.company.Ejercicio3.ClienteBanco;
+import com.company.Ejercicio3.Cuenta;
 
 public class Main {
 
@@ -54,5 +56,10 @@ public class Main {
         Factura unaFactura = new Factura(unCliente);
         unaFactura.mostrarTodo();
     }
+    static public void ejercicio3() {
 
+        Cuenta unaCuenta = new Cuenta();
+        unaCuenta.mostrarCuenta();
+        unaCuenta.mostrarMovimientos();
+    }
 }

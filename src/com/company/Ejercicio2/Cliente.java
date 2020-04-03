@@ -57,8 +57,7 @@ public class Cliente {
     }
     public void setID ()
     {
-        UUID ID = UUID.randomUUID();
-        this.ID = ID;
+        this.ID = UUID.randomUUID();
     }
 
     public void mostrarCliente ()

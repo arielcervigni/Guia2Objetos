@@ -34,7 +34,6 @@ public class Autor
         this.genero = bf.next().charAt(0);
     }
 
-
     public int ADA (Autor ADA [])
     {
         char control = 's';
@@ -51,7 +50,6 @@ public class Autor
         return posAutor;
     }
     /// get autor
-
     public String getNombre()
     {
         return nombre;

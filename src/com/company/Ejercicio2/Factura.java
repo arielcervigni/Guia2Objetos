@@ -1,6 +1,7 @@
 package com.company.Ejercicio2;
 import java.net.IDN;
 import java.time.*;
+import java.util.Date;
 import java.util.Formatter;
 import java.util.Scanner;
 import java.util.UUID;
@@ -10,23 +11,24 @@ public class Factura {
 
     UUID ID;
     double total;
-    LocalDateTime fyh;
+    Date fyh;
     Cliente unCliente;
     ItemVenta ADIV[];
     int dimension;
     int cantidad;
 
    /// Constructor
-    public Factura (Cliente unCliente)
+    public Factura ()
     {
-        setID();
-        setFyh();
+        this.ID = UUID.randomUUID();
+        this.fyh = new Date ();
         this.unCliente = unCliente;
         this.dimension = 3;
         this.cantidad = cargarItems();
         ItemVenta ADIV[];
         this.total = sumarItems();
     }
+
     /// GETTERS
     public UUID getID()
     {
@@ -36,7 +38,7 @@ public class Factura {
     {
         return total;
     }
-    public LocalDateTime getFyh ()
+    public Date getFyh ()
     {
         return fyh;
     }
@@ -64,12 +66,10 @@ public class Factura {
     }
     public void setID ()
     {
-        UUID ID = UUID.randomUUID();
         this.ID = ID;
     }
     public void setFyh ()
     {
-        LocalDateTime fyh = LocalDateTime.now();
         this.fyh = fyh;
     }
 
